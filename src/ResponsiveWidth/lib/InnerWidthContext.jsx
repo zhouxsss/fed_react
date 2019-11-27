@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react'
-import { connect } from 'react-redux'
+import React, { useState, useEffect } from 'react'
 
 const responsiveWidth = [768, 1200]
 
@@ -15,9 +14,12 @@ function getResponsiveWidth(width) {
   return 0
 }
 
-const InnerWidthWatcher = props => {
-  const [w, setW] = useState(null)
-  const { dispatch } = props
+const InnerWidthContext = React.createContext({
+  width: 0
+})
+
+export const InnerWidthProvider = props => {
+  const [w, setW] = useState(0)
 
   useEffect(() => {
     const handleChangeWidth = () => {
@@ -34,20 +36,12 @@ const InnerWidthWatcher = props => {
       window.removeEventListener('resize', handleChangeWidth)
     }
   }, [])
-  useEffect(() => {
-    if (w !== null) {
-      dispatch({
-        type: 'window/setWidth',
-        payload: w
-      })
-    }
-  }, [w])
 
-  return props.children
+  return (
+    <InnerWidthContext.Provider value={{ width: w }}>
+      {props.children}
+    </InnerWidthContext.Provider>
+  )
 }
 
-function mapStateToProps({ window }) {
-  return { window }
-}
-
-export default connect(mapStateToProps)(InnerWidthWatcher)
+export const InnerWidthConsumer = InnerWidthContext.Consumer

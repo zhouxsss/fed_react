@@ -6,7 +6,7 @@ const langOptions = {
 }
 
 const LangContext = React.createContext({
-  language: langOptions.chinese,
+  lang: langOptions.chinese,
   changeLang: () => {}
 })
 
