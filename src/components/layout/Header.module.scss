@@ -1,0 +1,24 @@
+.header {
+  background: #025ad3;
+}
+
+.headerCont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.24rem 0;
+  color: #fff;
+}
+
+.logo {
+  height: 0.44rem;
+}
+
+.nav {
+  display: flex;
+
+  > li {
+    margin: 0 0.16rem;
+    cursor: pointer;
+  }
+}
