@@ -3,7 +3,11 @@ export default {
 
   // header
   nav_home: '首页',
+  nav_about: '关于我们',
 
   // home
-  home_title: '设置'
+  home_title: '设置',
+
+  // about
+  about_title: '关于我们'
 }

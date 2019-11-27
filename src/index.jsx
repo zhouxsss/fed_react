@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Sirius from 'redux-sirius'
+import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import logger from 'redux-logger'
 
@@ -18,7 +19,9 @@ const store = new Sirius({
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 )
