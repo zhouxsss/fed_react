@@ -5,10 +5,9 @@ import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import logger from 'redux-logger'
 import 'normalize.css'
+import './index.module.scss'
 
 import App from 'containers/App'
-
-import './index.module.scss'
 
 const middleware = process.env.NODE_ENV === 'development' ? [logger] : []
 const store = new Sirius({

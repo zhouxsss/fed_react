@@ -72,3 +72,35 @@
     segoe ui symbol;
 }
 ```
+
+#### 6. 热更新
+
+##### 1. webpack HMR
+
+CRA 已经针对 webpack 的 HMR 进行了配置，正常进行项目修改时，浏览器会自动刷新进行更新，如果想要浏览器不刷新进行更新，可以修改`index.js`中`render App`的代码为：
+
+```js
+const render = AppComp => {
+  return ReactDOM.render(
+    <Provider store={store}>
+      <BrowserRouter>
+        <AppComp />
+      </BrowserRouter>
+    </Provider>,
+    document.getElementById('root')
+  )
+}
+
+render(App)
+
+// 我们是不是在 dev 环境 ？
+if (module.hot) {
+  // 当 App.js 更新了
+  module.hot.accept('containers/App', function() {
+    const NewApp = require('containers/App')
+    render(NewApp)
+  })
+}
+```
+
+需要注意的是，此时会进行整个`App`的替换，所以内部组件的状态也会被清掉，若想要保持每一个内部组件的状态，则可以考虑使用 `react-hot-loader`
