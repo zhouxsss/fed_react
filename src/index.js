@@ -4,6 +4,7 @@ import Sirius from 'redux-sirius'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import logger from 'redux-logger'
+import 'normalize.css'
 
 import App from 'containers/App'
 

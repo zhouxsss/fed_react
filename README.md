@@ -15,7 +15,7 @@
 
 #### 2. i18n 修改为 `React.Context`形式
 
-##### 使用方式
+##### 2.1 使用方式
 
 - 在`App.jsx`中使用 `LangProvider`, 若不使用，则默认值为 `lang = zh`，若使用，则可以调用`changeLang` 切换语言(`zh` <--> `en`)
 - 在需要使用中英文切换的地方使用形如 `<FormattedMessage id="home_title" plain />`，不传递 plain 属性时得到的形式为 `<span>首页</span>`
@@ -23,7 +23,7 @@
 
 #### 3. InnerWidth 修改为 `React.Context`形式
 
-##### 使用方式
+##### 3.1 使用方式
 
 - 在`App.jsx`中使用 `InnerWidthProvider`, 若不使用，则默认值为 `width = 0`，当网页的宽度发生变化时，则 `width`取值可能会有：
   - **768** --- 宽度小于等于 `768px`
@@ -58,3 +58,17 @@
 - `scriptjs`
 
   异步下载 cdn 的资源时，会用到
+
+#### 5. 响应式
+
+##### 5.1 字体
+
+`CSS-Tricks`推荐的默认字体为：
+
+```css
+ {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, segoe ui, Roboto,
+    Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji,
+    segoe ui symbol;
+}
+```
