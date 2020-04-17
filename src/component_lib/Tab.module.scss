@@ -1,0 +1,53 @@
+.w-tabs {
+  font-size: 16px;
+
+  .tabs-header {
+    margin-bottom: 16px;
+    //border-bottom: 1px solid #ddd;
+    > div {
+      display: flex;
+    }
+
+    .tab-title {
+      position: relative;
+      padding: 16px;
+      cursor: pointer;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 3px;
+        transform: scale(0);
+        background: linear-gradient(90deg, #3f90ff, #045bd3);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      &-active {
+        font-weight: 600;
+
+        &::after {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+
+  .tabs-content {
+    overflow: hidden;
+
+    &-list {
+      display: flex;
+      width: 100%;
+      transition: margin-left 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      will-change: margin-left;
+    }
+
+    .tab-content {
+      flex-shrink: 0;
+      width: 100%;
+    }
+  }
+}
