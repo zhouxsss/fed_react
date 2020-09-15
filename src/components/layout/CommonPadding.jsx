@@ -3,15 +3,17 @@ import styles from './CommonPadding.module.scss'
 
 const CommonPadding = props => {
   const containerClassName = 'container-flexible'
+  const { className, style, children } = props
   return (
     <div
       className={
-        props.className
-          ? `${props.className} ${styles[containerClassName]}`
+        className
+          ? `${className} ${styles[containerClassName]}`
           : styles[containerClassName]
       }
+      style={style}
     >
-      {props.children}
+      {children}
     </div>
   )
 }

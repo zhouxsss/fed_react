@@ -1,0 +1,12 @@
+.sides {
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  background-color: #dddddd;
+
+  .menu {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 10px;
+  }
+}

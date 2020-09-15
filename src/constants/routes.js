@@ -1,4 +1,5 @@
 export default {
   home: '/',
-  about: '/about'
+  about: '/about',
+  drag: '/drag'
 }
